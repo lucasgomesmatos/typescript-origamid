@@ -8,14 +8,12 @@ console.log(normalizarTexto("DEsign "))
 
 
 const input = document.querySelector('input');
-
 const total = localStorage.getItem('total');
 
 if (input) {
   if (input && total) {
     input.value = total;
     calcularGanho(Number(input.value));
-
   }
 
   function calcularGanho(value: number) {
