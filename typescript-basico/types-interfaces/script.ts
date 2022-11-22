@@ -11,8 +11,14 @@ type Produto = {
   teclado: boolean;
 }
 
+interface IProduto {
+  nome: string;
+  preco: number;
+  teclado: boolean;
+}
 
-function preencherDados(dados: Produto) {
+
+function preencherDados(dados: IProduto) {
   document.body.innerHTML += `
   <div>
     <h2>${dados.nome}</h2>
@@ -47,3 +53,4 @@ function pintarCategoria(categoria: Categorias) {
 }
 
 pintarCategoria('codigo');
+
