@@ -11,3 +11,5 @@ function filtrarValores(data: Array<number | string>) {
 
 console.log(maiorQue10(numbers))
 console.log(filtrarValores(valores))
+
+
