@@ -6,4 +6,4 @@ function normalizarString(texto: string) {
   return texto.trim().toLowerCase();
 }
 
-console.log(normalizarString("See W"))
+console.log(normalizarString("See WssS"))
