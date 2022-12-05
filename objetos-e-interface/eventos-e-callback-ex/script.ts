@@ -1,4 +1,4 @@
-const button = document.getElementById('btn-mobile');
+const buttonMobile = document.getElementById('btn-mobile');
 
 
 function handleClick(event: PointerEvent) {
@@ -12,14 +12,12 @@ function handleClick(event: PointerEvent) {
       nav.classList.remove("active");
       button.setAttribute("aria-label", "Abrir Menu")
       button.setAttribute("aria-expanded", "false")
-      button.setAttribute("aria-haspopup", "false")
     } else {
       nav.classList.add("active");
       button.setAttribute("aria-label", "Fechar Menu")
       button.setAttribute("aria-expanded", "true")
-      button.setAttribute("aria-haspopup", "true")
     }
   }
 }
 
-button?.addEventListener('pointerdown', handleClick);
+buttonMobile?.addEventListener('pointerdown', handleClick);
