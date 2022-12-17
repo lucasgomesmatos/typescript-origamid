@@ -37,7 +37,7 @@ function handleProduto(data: Produto) {
   if ('preco' in data) {
     document.body.innerHTML += `
       <p>Nome: ${data.nome}</p>
-      <p>Preço: R$ ${data.preco + 100}</p>
+      <p>Preço: R$ ${data.preco + 100} </p>
     `;
   }
 }
