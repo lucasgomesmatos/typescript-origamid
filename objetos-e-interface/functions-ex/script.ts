@@ -1,24 +1,12 @@
-
-function normalizar(value: string[]): string[];
-function normalizar(value: string): string;
-function normalizar(value: string | string[]) {
-  if (typeof value === "string") {
-    return value.trim().toLowerCase()
+function arredondar(valor: string): string;
+function arredondar(valor: number): number;
+function arredondar(value: string | number): string | number {
+  if (typeof value === 'string') {
+    return Math.ceil(Number(value)).toString();
   } else {
-    return value.map(item => item.trim().toLowerCase())
+    return Math.ceil(value);
   }
 }
 
-console.log(normalizar(' Este é um teste AAAA    w'))
-console.log(normalizar(['UVA', 'Banana']))
-
-function $(seletor: string): Element | null
-function $(seletor: 'video'): HTMLVideoElement | null
-function $(seletor: 'a'): HTMLAnchorElement | null
-function $(seletor: string): Element | null {
-  return document.querySelector(seletor)
-}
-
-$('video')?.volume
-$('a')
-$('.item')
+console.log(arredondar(15.4));
+console.log(arredondar('15.4'));
