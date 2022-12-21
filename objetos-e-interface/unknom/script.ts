@@ -10,7 +10,7 @@ function typeGuard(value: unknown) {
   }
 }
 
-typeGuard('Origamid');
+typeGuard('Origamid teste');
 typeGuard(200);
 typeGuard(document.body);
 
