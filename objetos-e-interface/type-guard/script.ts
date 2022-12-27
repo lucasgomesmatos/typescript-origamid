@@ -1,45 +1,37 @@
-function typeGuard(value: any) {
-  if (typeof value === 'string') {
-    return value.toLowerCase();
-  }
-  if (typeof value === 'number') {
-    return value.toFixed();
-  }
-  if (value instanceof HTMLElement) {
-    return value.innerText;
-  }
-}
-
-typeGuard('Origamid');
-typeGuard(200);
-typeGuard(document.body);
-
-const obj = {
-  nome: 'Origamid',
-};
-
-if ('nome' in obj) {
-  console.log('Sim');
-}
-
-interface Produto {
-  nome: string;
-  preco: number;
-}
-
-async function fetchProduto() {
-  const response = await fetch('https://api.origamid.dev/json/notebook.json');
+async function fetchCursos() {
+  const response = await fetch('https://api.origamid.dev/json/cursos.json');
   const json = await response.json();
-  handleProduto(json);
+  handleCursos(json);
 }
+fetchCursos();
 
-function handleProduto(data: Produto) {
-  if ('preco' in data) {
-    document.body.innerHTML += `
-      <p>Nome: ${data.nome}</p>
-      <p>Preço: R$ ${data.preco + 100} </p>
-    `;
+function handleCursos(data: unknown) {
+  if (data instanceof Array) {
+    console.log('É instância de Array');
+  }
+  if (Array.isArray(data)) {
+    console.log('É array');
   }
 }
 
-fetchProduto();
+/**
+ * Função type predicate, verifica se o value é uma string e retorna um boolean
+ * @param value string
+ * @returns boolean
+ */
+function isString(value: unknown): value is string {
+  if (typeof value === 'string') {
+    return true;
+  }
+
+  return false;
+}
+
+function handleData(data: unknown) {
+  if (isString(data)) {
+    console.log(data.toUpperCase());
+
+  }
+}
+
+handleData("teste")

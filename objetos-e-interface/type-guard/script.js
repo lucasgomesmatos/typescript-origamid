@@ -1,17 +1,32 @@
 "use strict";
-function normalizar(value) {
-    if (typeof value === "string") {
-        return value.trim().toLowerCase();
+async function fetchCursos() {
+    const response = await fetch('https://api.origamid.dev/json/cursos.json');
+    const json = await response.json();
+    handleCursos(json);
+}
+fetchCursos();
+function handleCursos(data) {
+    if (data instanceof Array) {
+        console.log('É instância de Array');
     }
-    else {
-        return value.map(item => item.trim().toLowerCase());
+    if (Array.isArray(data)) {
+        console.log('É array');
     }
 }
-console.log(normalizar(' Este é um teste AAAA    w'));
-console.log(normalizar(['UVA', 'Banana']));
-function $(seletor) {
-    return document.querySelector(seletor);
+/**
+ * Função type predicate, verifica se o value é uma string e retorna um boolean
+ * @param value string
+ * @returns boolean
+ */
+function isString(value) {
+    if (typeof value === 'string') {
+        return true;
+    }
+    return false;
 }
-$('video')?.volume;
-$('a');
-$('.item');
+function handleData(data) {
+    if (isString(data)) {
+        console.log(data.toUpperCase());
+    }
+}
+handleData("teste");
