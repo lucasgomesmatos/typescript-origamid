@@ -1,17 +1,35 @@
 "use strict";
-function normalizar(value) {
-    if (typeof value === "string") {
-        return value.trim().toLowerCase();
+function typeGuard(value) {
+    if (typeof value === 'string') {
+        return value.toLowerCase();
     }
-    else {
-        return value.map(item => item.trim().toLowerCase());
+    if (typeof value === 'number') {
+        return value.toFixed();
+    }
+    if (value instanceof HTMLElement) {
+        return value.innerText;
     }
 }
-console.log(normalizar(' Este é um teste AAAA    w'));
-console.log(normalizar(['UVA', 'Banana']));
-function $(seletor) {
-    return document.querySelector(seletor);
+typeGuard('Origamid');
+typeGuard(200);
+typeGuard(document.body);
+const obj = {
+    nome: 'Origamid',
+};
+if ('nome' in obj) {
+    console.log('Sim');
 }
-$('video')?.volume;
-$('a');
-$('.item');
+async function fetchProduto() {
+    const response = await fetch('https://api.origamid.dev/json/notebook.json');
+    const json = await response.json();
+    handleProduto(json);
+}
+function handleProduto(data) {
+    if ('preco' in data) {
+        document.body.innerHTML += `
+      <p>Nome: ${data.nome}</p>
+      <p>Preço: R$ ${data.preco + 100} </p>
+    `;
+    }
+}
+fetchProduto();
