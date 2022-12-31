@@ -58,6 +58,11 @@ function isString(value) {
   }
   return false;
 }
+
+/**
+ *
+ * @param {*} data
+ */
 function handleData(data) {
   if (isString(data)) {
     console.log(data.toUpperCase());
