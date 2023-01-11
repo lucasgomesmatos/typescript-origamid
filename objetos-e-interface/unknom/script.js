@@ -1,17 +1,12 @@
 "use strict";
-function normalizar(value) {
-    if (typeof value === "string") {
-        return value.trim().toLowerCase();
-    }
-    else {
-        return value.map(item => item.trim().toLowerCase());
-    }
+function typeGuard(value) {
+    if (typeof value === 'string')
+        return value.toUpperCase();
+    if (typeof value === 'number')
+        return value.toFixed();
+    if (value instanceof HTMLElement)
+        return value.innerText;
 }
-console.log(normalizar(' Este é um teste AAAA    w'));
-console.log(normalizar(['UVA', 'Banana']));
-function $(seletor) {
-    return document.querySelector(seletor);
-}
-$('video')?.volume;
-$('a');
-$('.item');
+console.log(typeGuard('Origamid'));
+console.log(typeGuard(200));
+console.log(document.body);
