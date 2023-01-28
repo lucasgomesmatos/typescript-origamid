@@ -7,6 +7,4 @@ class Produto {
     this.tipo = tipo;
   }
 }
-
 const livro = new Produto('Livro', 'O senhor dos anéis');
-console.log(livro.tipo);
