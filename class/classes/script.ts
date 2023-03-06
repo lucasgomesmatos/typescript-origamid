@@ -1,5 +1,5 @@
 class Produto {
-  tipo: string;
+  private tipo: string;
   nome: string;
   preco: number;
 
@@ -8,11 +8,15 @@ class Produto {
     this.tipo = tipo;
     this.preco = preco;
   }
+
+  getTipo() {
+    return this.tipo;
+  }
 }
 const livro = new Produto('Livro', 'O senhor dos anéis', 59);
 
 console.log(livro);
 
 console.log(livro instanceof Produto);
-
-console.log(document.constructor);
+// console.log(document.constructor);
+console.log(livro.getTipo());
