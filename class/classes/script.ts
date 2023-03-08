@@ -1,7 +1,7 @@
 class Produto {
   private tipo: string;
   nome: string;
-  preco: number;
+  protected preco: number;
 
   constructor(nome: string, tipo: string, preco: number) {
     this.nome = nome;
