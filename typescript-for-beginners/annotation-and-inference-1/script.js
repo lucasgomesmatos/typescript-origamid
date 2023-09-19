@@ -19,3 +19,4 @@ function transformarPreco(produto) {
     return `R$ ${produto.preco}`;
 }
 console.log(transformarPreco(nintendo));
+console.log('ooi');
