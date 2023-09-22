@@ -31,5 +31,3 @@ function transformarPreco(produto: typeProduto) {
 }
 
 console.log(transformarPreco(nintendo));
-
-console.log('ooi');
