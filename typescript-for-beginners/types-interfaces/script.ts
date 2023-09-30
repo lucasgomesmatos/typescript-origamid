@@ -1,8 +1,8 @@
-type Produto = {
+interface Produto {
   nome: string;
   preco: number;
   teclado: boolean;
-};
+}
 
 function preencherDados(dados: Produto) {
   document.body.innerHTML += `
