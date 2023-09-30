@@ -31,4 +31,4 @@ function toNumber(value: number | string) {
   }
 }
 
-console.log(toNumber({ oi: 'oi' }));
+console.log(toNumber(10));

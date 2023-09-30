@@ -26,4 +26,4 @@ function toNumber(value) {
         throw 'value deve ser um número ou uma string';
     }
 }
-console.log(toNumber({ oi: 'oi' }));
+console.log(toNumber(10));
