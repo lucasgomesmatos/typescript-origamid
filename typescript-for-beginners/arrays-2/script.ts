@@ -5,7 +5,7 @@ interface Curso {
   gratuito: boolean;
   tags: string[];
   idAulas: number[];
-  nivel: string;
+  nivel: 'iniciante' | 'avancado';
 }
 
 async function fetchCursos() {
