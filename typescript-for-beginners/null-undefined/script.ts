@@ -1,6 +1,19 @@
-function normalizar(texto: any) {
-  return texto.trim().toLowerCase();
+const button = document.querySelector('button');
+const config = localStorage.getItem('config');
+
+if (button) {
+  button.addEventListener('click', () => {});
 }
 
-console.log(normalizar('   Design'));
-// console.log(normalizar(200));
+interface Product {
+  nome?: string;
+}
+
+const jogo: Product = {
+  nome: 'Ragnarok',
+};
+
+const livro: Product = {};
+
+jogo.nome = 'Ragnarok 2';
+console.log(livro.nome?.toLocaleLowerCase());

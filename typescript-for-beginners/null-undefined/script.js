@@ -1,6 +1,12 @@
 "use strict";
-function normalizar(texto) {
-    return texto.trim().toLowerCase();
+const button = document.querySelector('button');
+const config = localStorage.getItem('config');
+if (button) {
+    button.addEventListener('click', () => { });
 }
-console.log(normalizar('   Design'));
-// console.log(normalizar(200));
+const jogo = {
+    nome: 'Ragnarok',
+};
+const livro = {};
+jogo.nome = 'Ragnarok 2';
+console.log(livro.nome?.toLocaleLowerCase());
