@@ -33,7 +33,7 @@ class Jogo {
 
 function buscarProduto(busca: string) {
   if (busca === 'O Hobbit') {
-    return new Livro('J. R. R. Tolkien');
+    return new Livro('J. R. R. Tolkien ');
   }
   if (busca === 'Dark Souls') {
     return new Jogo(1);
