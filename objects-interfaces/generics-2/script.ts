@@ -11,7 +11,7 @@ if (link) {
   console.log(extractText(link));
 }
 
-function $<T extends Element>(seletor: string): T | null {
+function $<T>(seletor: string): T | null {
   return document.querySelector(seletor);
 }
 
