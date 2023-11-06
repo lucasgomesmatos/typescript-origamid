@@ -1,27 +1,27 @@
-// function extractText<T extends HTMLElement>(el: T) {
-//   return {
-//     texto: el.innerHTML,
-//     el,
-//   };
-// }
+function extractText<T extends HTMLElement>(el: T) {
+  return {
+    texto: el.innerHTML,
+    el,
+  };
+}
 
-// const link = document.querySelector('a');
+const link = document.querySelector('a');
 
-// if (link) {
-//   console.log(extractText(link));
-// }
+if (link) {
+  console.log(extractText(link));
+}
 
-// function $<T extends Element>(seletor: string): T | null {
-//   return document.querySelector(seletor);
-// }
+function $<T extends Element>(seletor: string): T | null {
+  return document.querySelector(seletor);
+}
 
-// const body = $<HTMLBodyElement>('body');
+const body = $<HTMLBodyElement>('body');
 
-// const linkAnchor = document.querySelector('.link');
+const linkAnchor = document.querySelector('.link');
 
-// if (linkAnchor instanceof HTMLAnchorElement) {
-//   console.log(linkAnchor.href);
-// }
+if (linkAnchor instanceof HTMLAnchorElement) {
+  console.log(linkAnchor.href);
+}
 
 async function getData<T>(url: string): Promise<T> {
   const response = await fetch(url);
