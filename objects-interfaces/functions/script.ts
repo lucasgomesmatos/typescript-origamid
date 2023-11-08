@@ -3,4 +3,3 @@ function abortar(message: string): never {
 }
 
 abortar('Error critico... linha 1')
-console.log('Fim')
