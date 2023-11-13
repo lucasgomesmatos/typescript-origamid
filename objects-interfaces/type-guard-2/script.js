@@ -1,36 +1,26 @@
 "use strict";
-function typeGuard(valor) {
-    if (typeof valor === 'string') {
-        return String(valor);
-    }
-    if (typeof valor === 'number') {
-        return Number(valor);
-    }
-    if (valor instanceof HTMLElement) {
-        return valor.innerHTML;
-    }
-    return valor;
-}
-// console.log(typeGuard(5.6));
-// console.log(typeGuard('5.6'));
-// console.log(typeGuard(document.querySelector('h1')));
-const obg = {
-    nome: 'João',
-};
-if ('nome' in obg) {
-    console.log(obg.nome);
-}
-async function fetchProduto() {
+async function fetchCursos() {
     const response = await fetch('https://api.origamid.dev/json/notebook.json');
     const json = await response.json();
-    handleProduto(json);
+    handleCursos(json);
 }
-function handleProduto(data) {
-    if ('preco' in data) {
-        document.body.innerHTML += `
-      <p>Nome: ${data.nome}</p>
-      <p>Preço: R$ ${data.preco + 100}</p>
-    `;
+fetchCursos();
+function isProduto(value) {
+    if (value &&
+        typeof value === 'object' &&
+        'nome' in value &&
+        'preco' in value) {
+        return true;
+    }
+    else {
+        return false;
     }
 }
-fetchProduto();
+function handleCursos(data) {
+    if (isProduto(data)) {
+        console.log(data.nome);
+        console.log(data.preco);
+    }
+    else {
+    }
+}
