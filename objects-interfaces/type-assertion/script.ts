@@ -1,51 +1,19 @@
-// 1 - Faça um fetch da API: https://api.origamid.dev/json/cursos.json
-// 2 - Defina a interface da API
-// 3 - Crie um Type Guard, que garanta que a API possui nome, horas e tags
-// 4 - Use Type Guards para garantir a Type Safety do código
-// 5 - Preencha os dados da API na tela.
+const video = document.querySelector('#video') as HTMLVideoElement;
 
-type Course = {
-  aulas: string;
-  gratuito: boolean;
-  horas: number;
-  idAulas: number[];
-  nivel: 'iniciante' | 'avancado';
+video.volume;
+
+interface Produto {
   nome: string;
-  tags: string[];
-};
-
-async function getCourse() {
-  const response = await fetch('https://api.origamid.dev/json/cursos.json');
-  const json = await response.json();
-  handleCourses(json);
+  preco: number;
 }
 
-getCourse();
-
-function isCourse(value: unknown): value is Course {
-  if (
-    value &&
-    typeof value === 'object' &&
-    'nome' in value &&
-    'aulas' in value &&
-    'idAulas' in value
-  ) {
-    return true;
-  }
-
-  return false;
+async function fetchProduto() {
+  const response = await fetch('https://api.origamid.dev/json/notebook.json');
+  return response.json() as Promise<Produto>;
 }
 
-function handleCourses(data: unknown) {
-  if (Array.isArray(data)) {
-    data.filter(isCourse).forEach((item) => {
-      document.body.innerHTML += `
-        <div>
-          <h2>${item.nome}</h2>
-          <p>${item.horas}</p>
-          <p>${item.tags.join(', ')}</p>
-        </div>
-      `;
-    });
-  }
+// Podemos usar o as em diferentes locais.
+async function handleProduto1() {
+  const produto = await fetchProduto();
+  produto.nome;
 }
