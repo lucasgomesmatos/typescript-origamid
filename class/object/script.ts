@@ -33,7 +33,7 @@ interface Post {
 const artigo: Post = {
   titulo: 'como aprender TypeScript',
   visualizacoes: 1000,
-  tags: ['typescript', 'javascript'],
+  tags: ['typescript', 'javascript', 'programação'],
   autor: 'Luiz',
 };
 
