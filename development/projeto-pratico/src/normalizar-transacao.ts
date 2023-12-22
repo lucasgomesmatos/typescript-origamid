@@ -1,4 +1,5 @@
 import { moedaParaNumero } from './moeda-para-numero';
+import { transformarStringEmData } from './transformar-string-em-data';
 
 export type TransacaoPagamento = 'Cartão de Crédito' | 'Boleto';
 export type TransacaoStatus =
@@ -21,7 +22,7 @@ export interface TransacaoAPI {
 export interface Transacao {
   id: number;
   status: TransacaoStatus;
-  data: string;
+  data: Date;
   nome: string;
   email: string;
   moeda: string;
@@ -35,7 +36,7 @@ export function normalizarTransacao(transacao: TransacaoAPI): Transacao {
     id: transacao.ID,
     nome: transacao.Nome,
     email: transacao.Email,
-    data: transacao.Data,
+    data: transformarStringEmData(transacao.Data),
     status: transacao.Status,
     novo: Boolean(transacao['Cliente Novo']),
     pagamento: transacao['Forma de Pagamento'],
