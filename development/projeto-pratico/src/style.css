@@ -3,3 +3,30 @@ body {
   margin: 2rem;
   font-size: 1.25rem;
 }
+table {
+  border-spacing: 0;
+  text-align: left;
+}
+
+table td,
+table th {
+  padding: 0.5rem 1rem;
+}
+
+table tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+h2,
+p {
+  margin-left: 1rem;
+}
+
+h2 {
+  border-top: 6px solid #f5f5f5;
+  padding-top: 1rem;
+}
+
+div {
+  border-top: 3px solid #f5f5f5;
+}
