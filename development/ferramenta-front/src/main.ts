@@ -12,6 +12,3 @@ const diferenca = _.difference([2, 1], [2, 3]);
 const livro = {
   nome: 'O Senhor dos Anéis',
 };
-
-console.log(livro.nome);
-console.log(diferenca);
