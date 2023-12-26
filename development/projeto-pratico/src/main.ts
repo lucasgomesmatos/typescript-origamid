@@ -1,4 +1,5 @@
 import { Estatiscas } from './Estatiscas';
+import { ListaContada } from './count-by';
 import { fetchData } from './fetch-data';
 import {
   Transacao,
@@ -18,6 +19,11 @@ async function fetchDados() {
 
 function preencherEstatisticas(transacoes: Transacao[]) {
   const data = new Estatiscas(transacoes);
+  console.log(data);
+
+  preencherLista(data.pagamento, 'pagamento');
+  preencherLista(data.status, 'status');
+
   const totalElement = document.querySelector('#total span');
   if (totalElement instanceof HTMLElement) {
     totalElement.innerText = data.total.toLocaleString('pt-BR', {
@@ -40,6 +46,20 @@ function preencherTabela(transacoes: Transacao[]) {
     <td>${transacao.status}</td>
     </tr>
     
+    `;
+  });
+}
+
+function preencherLista(lista: ListaContada, containerId: string) {
+  if (!lista || !containerId) return;
+
+  const elementoHTML = document.getElementById(containerId);
+
+  if (!elementoHTML) return;
+
+  Object.keys(lista).forEach((key) => {
+    elementoHTML.innerHTML += `
+    <p>${key}: ${lista[key]}</p>
     `;
   });
 }
